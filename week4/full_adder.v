@@ -1,15 +1,15 @@
-module full_adder(C,S,X,Y,Z);
-
-	output C, S;
-	input X, Y, Z;
+module full_adder(
+	input X,Y,Z,
+	output C, S
+);
 
 	wire C0, C1;
 	wire S0;
 
 	// First half adder instance
-	half_adder h0(C0, S0, X, Y);
+	half_adder h0(X, Y, C0, S0);
 	// Second half adder instance
-	half_adder h1(C1, S, S0, Z);
+	half_adder h1(S0, Z, C1, S);
 	// Carry
 	or(C, C1, C0);
 
