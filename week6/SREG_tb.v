@@ -19,14 +19,13 @@ Shift_REG U7(CLK, SI, S1, S2, S3, S4);
 	initial
 	begin
 	SI = 1'b1;
-	#10;
+	#10 SI = 1'b0;
 	end
 	
 	
 	always @(posedge CLK)
 	begin
-	
-	#2 SI = 1'b0;
+
 	end
 	
 endmodule
