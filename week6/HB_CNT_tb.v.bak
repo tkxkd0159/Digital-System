@@ -1,0 +1,32 @@
+`timescale 10ns/1ps
+
+module CNT_tb();
+
+	reg J, K, CLK;
+	wire Q, NQ;
+	
+BCD_CNT U3(CLK, Q1, Q2, Q4, Q8);
+
+	always begin
+		CLK = 1'b0;
+		#3;
+		CLK = 1'b1;
+		#3;
+		
+	end
+	
+	always @(negedge CLK) begin
+		
+		J<=0; K<=0;
+		#20 J<=1; K<=0;
+		#20 J<=0; K<=1;
+		#20 J<=1; K<=1;
+		#20;
+	
+	end
+	
+	
+	
+endmodule
+	
+	

@@ -1,4 +1,4 @@
-module D_FF(CLK, D, Q, NQ);
+module LAB06(CLK, D, Q, NQ);
     input CLK, D;
     output Q, NQ;
     wire w1, w2, w3, w4;

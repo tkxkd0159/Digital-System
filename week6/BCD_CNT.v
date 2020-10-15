@@ -1,10 +1,23 @@
-module BCD_CNT(CLK, Q1, Q2, Q4, Q8);
-    input CLK;
-    output Q1, Q2, Q4, Q8;
-    wire NQ8;
-    supply1 p;	
-    JK_FF F1(.J(p), .K(p), .CLK(CLK), .Q(Q1), .NQ());
-    JK_FF F2(.J(NQ8), .K(p), .CLK(Q1), .Q(Q2), .NQ());
-    JK_FF F3(.J(p), .K(p), .CLK(Q2), .Q(Q4), .NQ());
-    JK_FF F4(.J(Q2&Q4), .K(p), .CLK(Q1), .Q(Q8), .NQ(NQ8));
+module BCD_CNT(
+	input CLK, RST,
+	output Q1, Q2, Q4, Q8
+);
+
+	 
+    supply1 p;
+	 
+	 
+
+
+
+//			JK_FF F1(.J(p), .K(p), .CLK(CLK), .Q(Q1), .NQ());
+//		   JK_FF F2(.J(NQ8), .K(p), .CLK(Q1), .Q(Q2), .NQ());
+//		   JK_FF F3(.J(p), .K(p), .CLK(Q2), .Q(Q4), .NQ());
+//		   JK_FF F4(.J(Q2&Q4), .K(p), .CLK(Q1), .Q(Q8), .NQ(NQ8));
+
+			JK_BIN F1(.J(p), .K(p), .CLK(CLK), .RST(RST), .Q(Q1));
+		   JK_BIN F2(.J(~Q8), .K(p), .CLK(Q1), .RST(RST), .Q(Q2));
+		   JK_BIN F3(.J(p), .K(p), .CLK(Q2), .RST(RST), .Q(Q4));
+		   JK_BIN F4(.J(Q2&Q4), .K(p), .CLK(Q1), .RST(RST), .Q(Q8));
+
 endmodule
