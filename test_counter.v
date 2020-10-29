@@ -6,31 +6,46 @@ module test_counter(
 	
 	
 
-	always begin
+	always @(negedge CLK) begin
 		if(RST) begin 
 			Q1<=1'b0;
-			Q2<=1'b0;
-			Q4<=1'b0;
-			Q8<=1'b0;
 			end
-		
-		@(negedge CLK); 
+		else begin
 			Q1 <= ~Q1;
+			end
+	end
 
-		
-		@(negedge Q1);
+	always @(negedge Q1) begin
+		if(RST) begin 
+		  Q2<=1'b0;
+		  end
+		else begin
 			Q2 <= ~Q2;
-	
-	
-		@(negedge Q2);
-			Q4 <= ~Q4;
-
+			end
+	end
 		
-		@(negedge Q4);
+	always @(negedge Q2) begin
+		if(RST) begin
+			Q4<=1'b0;
+			end
+		else begin
+			Q4 <= ~Q4;
+			end
+	end
+	always @(negedge Q4) begin
+		if(RST) begin
+			Q8 <= 1'b0;
+			end
+		else begin
 			Q8 <= ~Q8;
+			end
+	end
+	
+		
+
 							
 				
-	end
+
 		
 
 
