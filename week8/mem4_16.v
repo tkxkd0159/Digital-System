@@ -1,6 +1,5 @@
 module mem4_16(
-    input CLK, WR, RD, enable,
-    input N_Reset,
+    input CLK, WR, RD,
     input [3:0] A,
     input [9:0] D_IN,
     output [3:0] Q,
@@ -12,7 +11,6 @@ reg [3:0] SRAM [15:0];
 wire [15:0] mem_addr;
 wire A1,B1,C1,D1,E1,F1,G1;
 
-dec4_16 U0(A, enable, mem_addr);
 
 always @(posedge CLK)
 begin
@@ -36,6 +34,6 @@ end
 
 assign Q = (RD) ? SRAM[mem_addr] : 4'bz;
 BCDto7 U1(Q[3],Q[2],Q[1],Q[0],	A1,B1,C1,D1,E1,F1,G1);
-SevenSeg_CTRL u3(CLK, N_Reset, {A1,B1,C1,D1,E1,F1,G1},0,0,0,0,0,0,0, SEG_COM, SEG_DATA);
+SevenSeg_CTRL u3(CLK, 0, {A1,B1,C1,D1,E1,F1,G1},0,0,0,0,0,0,0, SEG_COM, SEG_DATA);
 
 endmodule
