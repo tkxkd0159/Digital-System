@@ -23,7 +23,7 @@ begin
 				R1 = Ddata;
 			else if(L0[2])
 				R2 = Ddata;
-			else if(L3[3])
+			else if(L0[3])
 				R3 = Ddata;
 		end
 end
@@ -35,3 +35,6 @@ assign Reg0 = R0;
 assign Reg1 = R1;
 assign Reg2 = R2;
 assign Reg3 = R3;
+
+
+endmodule

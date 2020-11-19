@@ -1,5 +1,0 @@
-`timescale 10ns/1ps
-
-
-module BCD_CNT_tb();
-
