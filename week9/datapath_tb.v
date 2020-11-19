@@ -13,7 +13,7 @@ datapath RES0(CLK, CW, CONSTANT, DATA, reg0, reg1, reg2, reg3);
 initial
  begin
      CW<=13'b0000000000000; CONSTANT<=4'b0000; DATA<=4'b0000;
-     #10 DATA<=4'b0100; CW<=13'b0000000000011; //reg0
+     #10 DATA<=4'b0101; CW<=13'b0000000000011; //reg0
      #10 DATA<=4'b0101; CW<=13'b0100000000011; //reg1
      #10 DATA<=4'b0110; CW<=13'b1000000000011; //reg2
      #10 DATA<=4'b0111; CW<=13'b1100000000011; //reg3

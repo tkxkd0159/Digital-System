@@ -9,7 +9,7 @@ module arithmeticCircuit(
 
 wire [3:0] LogicOut;
 
-inputLogic L0(Bdata, S1, LogicOut);
+MUX4to1 LogicMux(4'b1111, {Bdata^4'b1111}, Bdata, 4'b0000, S1, LogicOut);
 adder_4bit add0(Cout, Gout, Adata, LogicOut, Cin);
 
 endmodule
