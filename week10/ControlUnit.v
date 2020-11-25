@@ -1,0 +1,22 @@
+module ControlUnit(
+    input CLK,
+    input [3:0] aData,
+    output [1:0] DA, AA, BA,
+    output muxB,
+    output [3:0] FS,
+    output muxD,
+    output RW, MW,
+    output [3:0] constant,
+    output wire [3:0] memAddr,
+    output wire [12:0] instIO
+);
+
+wire PL, JB, BC;
+
+InstructionMemory CU0(CLK, 0, memAddr, 0, instIO);
+InstructionDecoder CU1(instIO, DA, AA, BA, muxB, FS, muxD, RW, MW, PL, JB, BC);
+ProgramCounter CU2(CLK, PL, JB, BC, DA, BA, aData, memAddr);
+
+assign constant = {2'b00, instIO[1:0]};
+
+endmodule
