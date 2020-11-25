@@ -1,6 +1,6 @@
 module InstructionMemory(
     input CLK, WR,
-    input [3:0] memAddr,  //from datapath module
+    input [3:0] instMemAddr,  //from datapath module
     input [12:0] instIn,
     output [12:0] instOut
 );
@@ -16,9 +16,9 @@ end
 
 always@(posedge CLK)
 begin
-    if(WR) SRAM[memAddr] <= instIn;
+    if(WR) SRAM[instMemAddr] <= instIn;
 end
 
-assign instOut = SRAM[memAddr];
+assign instOut = SRAM[instMemAddr];
 
 endmodule
