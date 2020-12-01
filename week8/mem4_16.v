@@ -1,14 +1,13 @@
 module mem4_16(
     input CLK, WR, RD,
-    input [3:0] A,
+    input wire [3:0] mem_addr,
     input [9:0] D_IN,
     output [3:0] Q,
     output [7:0] SEG_COM,
     output [6:0] SEG_DATA
 );
 
-reg [3:0] SRAM [15:0];
-wire [15:0] mem_addr;
+reg [3:0] SRAM [3:0];
 wire A1,B1,C1,D1,E1,F1,G1;
 
 
