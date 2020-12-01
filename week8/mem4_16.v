@@ -7,7 +7,7 @@ module mem4_16(
     output [6:0] SEG_DATA
 );
 
-reg [3:0] SRAM [3:0];
+reg [3:0] SRAM [15:0];
 wire A1,B1,C1,D1,E1,F1,G1;
 
 
