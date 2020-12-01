@@ -5,7 +5,7 @@ module InstructionMemory(
     output [12:0] instOut
 );
 
-reg [12:0] SRAM [3:0];
+reg [12:0] SRAM [15:0];
 
 initial
 begin
